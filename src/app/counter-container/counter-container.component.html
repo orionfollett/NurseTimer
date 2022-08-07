@@ -1,0 +1,8 @@
+
+<button (click) = "addClick()" mat-raised-button>Add</button>
+
+<p *ngFor="let count of counters">
+    <app-counter></app-counter>
+    <button (click) = "removeClick(count)" mat-raised-button>Delete</button>
+</p>
+  

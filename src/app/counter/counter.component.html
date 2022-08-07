@@ -1,0 +1,32 @@
+<mat-card class="card-format">
+
+    <div>
+    <mat-card-title>
+        <app-editable-header value={{header}}></app-editable-header>
+    </mat-card-title>
+</div>
+
+<div>
+    <div class="example-button-row">
+        <mat-card-title class="float-left">{{formattedCount()}}</mat-card-title>
+        <div *ngIf="isTimerStopped">
+            <mat-divider></mat-divider>
+            <section>
+                <div class="example-button-row">
+                    <button (click) = "downClick()" mat-stroked-button>down</button>
+                    <button (click) = "upClick()" mat-stroked-button>up</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<mat-card-actions>
+    <mat-divider></mat-divider>
+    <button (click) = "startClick()" mat-stroked-button class="start-button">start</button>
+    <button (click) = "stopClick()" mat-stroked-button>stop</button>
+    <button (click) = "resetClick()" mat-stroked-button>reset</button>
+</mat-card-actions>
+</mat-card>
+
+
