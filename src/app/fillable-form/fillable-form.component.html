@@ -1,31 +1,54 @@
+<h1>Time Format: (four digit military time including leading 0)</h1>
+<h2>Ex: 0430</h2>
+
 <form [formGroup]="timerForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="roomNumber">
-          Room Number
-        </label>
-        <input id="roomNumber" type="text" formControlName="roomNumber">
+     <div class="example-container">
+        <mat-error *ngIf="!isRoomNumberValid">Cannot be Empty</mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label for="roomNumber">Room Number</mat-label>
+          <input matInput placeholder="2" required id="roomNumber" type="text" formControlName="roomNumber">
+          <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-error *ngIf="!isBirthTimeValid">Invalid Format</mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label for="birthTime">Birth Time</mat-label>
+          <input matInput 
+          placeholder="Ex: 1730" 
+          required id="birthTime" 
+          type="text" 
+          formControlName="birthTime" 
+          >
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-error *ngIf="!isInitialVitalsValid">Invalid Format</mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label for="initialVitals">Baby Initial Vitals</mat-label>
+          <input matInput placeholder="Ex: 0015" required id="initialVitals" type="text" formControlName="initialVitals">
+          <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-error *ngIf="!isRecoveryTimeValid">Invalid Format</mat-error>
+        <mat-form-field appearance="fill">
+          <mat-label for="recoveryTime">Mom Recovery Time</mat-label>
+          <input matInput placeholder="Ex: 0430" required id="recoveryTime" type="text" formControlName="recoveryTime">
+          <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+        </mat-form-field>
     </div>
 
+    <button mat-raised-button color="primary" class="button" type="submit">Submit</button>
+</form>
+
+<!--<a routerLink="/list" routerLinkActive="active">List</a>-->
+
+ <!--
     <div>
         <label for="birthTime">
           Birth Time
         </label>
         <input id="birthTime" type="text" formControlName="birthTime">
     </div>
-
-    <div>
-        <label for="initialVitals">
-          Initial Baby Vitals Time
-        </label>
-        <input id="initialVitals" type="text" formControlName="initialVitals">
-    </div>
-
-    <div>
-        <label for="recoveryTime">
-          Mom Recovery Time
-        </label>
-        <input id="Recovery Time" type="text" formControlName="recoveryTime">
-    </div>
-    <button class="button" type="submit">Submit</button>
-    <a routerLink="/clock" routerLinkActive="active">Clock</a>
-</form>
+-->

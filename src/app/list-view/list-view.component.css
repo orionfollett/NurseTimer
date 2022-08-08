@@ -1,0 +1,7 @@
+.list{
+    border: 2px solid;
+    padding : 10px;
+}
+.contain{
+    display : flex;
+}
