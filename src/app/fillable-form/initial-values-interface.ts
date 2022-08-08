@@ -1,5 +1,4 @@
 export interface InitialValues{
-    
     roomNumber: '',
     birthTime: '',
     initialVitals: '',
