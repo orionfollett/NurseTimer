@@ -11,7 +11,7 @@ import { EventEmitter } from "@angular/core";
 })
 export class EditableHeaderComponent {
 
-  public isEditing: boolean;
+  	public isEditing: boolean;
 	public pendingValue: string;
 	public value!: string;
 	//public valueChangeEvents: EventEmitter<string>;

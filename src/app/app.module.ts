@@ -13,6 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { EditableHeaderComponent } from './editable-header/editable-header.component';
+import { FillableFormComponent } from './fillable-form/fillable-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './routing-module';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { EditableHeaderComponent } from './editable-header/editable-header.compo
     CounterComponent,
     CounterContainerComponent,
     EditableHeaderComponent,
+    FillableFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,10 @@ import { EditableHeaderComponent } from './editable-header/editable-header.compo
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

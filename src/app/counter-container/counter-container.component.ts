@@ -23,7 +23,6 @@ export class CounterContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
   }
 
   addClick(){
