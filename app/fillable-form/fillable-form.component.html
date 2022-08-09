@@ -1,0 +1,31 @@
+<form [formGroup]="timerForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="roomNumber">
+          Room Number
+        </label>
+        <input id="roomNumber" type="text" formControlName="roomNumber">
+    </div>
+
+    <div>
+        <label for="birthTime">
+          Birth Time
+        </label>
+        <input id="birthTime" type="text" formControlName="birthTime">
+    </div>
+
+    <div>
+        <label for="initialVitals">
+          Initial Baby Vitals Time
+        </label>
+        <input id="initialVitals" type="text" formControlName="initialVitals">
+    </div>
+
+    <div>
+        <label for="recoveryTime">
+          Mom Recovery Time
+        </label>
+        <input id="Recovery Time" type="text" formControlName="recoveryTime">
+    </div>
+    <button class="button" type="submit">Submit</button>
+    <a routerLink="/clock" routerLinkActive="active">Clock</a>
+</form>
