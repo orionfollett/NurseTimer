@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './routing-module';
 import { ListViewComponent } from './list-view/list-view.component';
+import { SendSmsComponent } from './send-sms/send-sms.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ListViewComponent } from './list-view/list-view.component';
     EditableHeaderComponent,
     FillableFormComponent,
     ListViewComponent,
+    SendSmsComponent,
   ],
   imports: [
     BrowserModule,
