@@ -1,0 +1,38 @@
+<a routerLink="/form" routerLinkActive="active">New</a>
+<h1>Room Number: {{initVals.roomNumber}}</h1>
+
+<h2>Birth Time: {{initVals.birthTime}}</h2>
+<h2>First Baby Vitals: {{initVals.initialVitals}}</h2>
+<h2>Mom Recovery Start Time: {{initVals.recoveryTime}}</h2>
+
+
+
+<div class="contain">
+    <div class="list">
+        <h2>Mom's Vitals</h2>
+        <div *ngFor="let d of momsVitalTimes">
+            {{d | date:"HH:mm"}}
+        </div>
+    </div>
+
+    <div class="list">
+        <h2>Mom's Assessment</h2>
+        <div *ngFor="let d of momsAssessmentTimes">
+            {{d | date:"HH:mm"}}
+        </div>
+    </div>
+
+    <div class="list">
+        <h2>Baby's Vitals</h2>
+        <div *ngFor="let d of babysVitalTimes">
+            {{d | date:"HH:mm"}}
+        </div>
+    </div>
+
+    <div class="list">
+        <h2>Baby's Assessment</h2>
+        <div *ngFor="let d of babysAssessmentTimes">
+            {{d | date:"HH:mm"}}
+        </div>
+    </div>
+</div>

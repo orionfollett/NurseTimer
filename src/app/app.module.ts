@@ -17,6 +17,7 @@ import { FillableFormComponent } from './fillable-form/fillable-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './routing-module';
+import { ListViewComponent } from './list-view/list-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './routing-module';
     CounterContainerComponent,
     EditableHeaderComponent,
     FillableFormComponent,
+    ListViewComponent,
   ],
   imports: [
     BrowserModule,
