@@ -1,11 +1,8 @@
 <a routerLink="/form" routerLinkActive="active">New</a>
 <h1>Room Number: {{initVals.roomNumber}}</h1>
-
 <h2>Birth Time: {{initVals.birthTime}}</h2>
 <h2>First Baby Vitals: {{initVals.initialVitals}}</h2>
 <h2>Mom Recovery Start Time: {{initVals.recoveryTime}}</h2>
-
-
 
 <div class="contain">
     <div class="list">
@@ -36,3 +33,7 @@
         </div>
     </div>
 </div>
+
+<mat-divider class="l2"></mat-divider>
+<app-send-sms></app-send-sms>
+<mat-divider class="l2"></mat-divider>

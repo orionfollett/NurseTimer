@@ -41,11 +41,6 @@ export class FillableFormComponent implements OnInit {
     };
   }
 
-  blurEvent(event: any){
-    let pendingValue = event.target.value;
-    
-  }
-
   public static validateTimeFormat(s : string) : boolean{
     if(s.length == "0430".length){
         if(!isNaN(Number(s))){

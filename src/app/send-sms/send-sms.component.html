@@ -1,1 +1,20 @@
-<p>send-sms works!</p>
+<h1>Enter Phone Number</h1>
+<h2>Only Supports AT&T Phones. If you don't get message, the server is not running.</h2>
+
+<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+       <mat-form-field appearance="fill">
+         <mat-label for="phoneNumber">ATT Phone Number</mat-label>
+         <input matInput placeholder="6261234567" required id="phoneNumber" type="text" formControlName="phoneNumber">
+       </mat-form-field>
+   </div>
+<!--
+   <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label for="msg">Message</mat-label>
+      <input matInput placeholder="hello" required id="msg" type="text" formControlName="msg">
+    </mat-form-field>
+    </div>
+-->
+   <button mat-raised-button color="primary" class="button" type="submit">Submit</button>
+</form>
