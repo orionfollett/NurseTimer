@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FillableFormComponent } from '../fillable-form/fillable-form.component';
+import { formatDate } from '@angular/common';
 import { InitialValues } from '../fillable-form/initial-values-interface';
 import { SendSmsComponent } from '../send-sms/send-sms.component';
 
@@ -14,22 +15,35 @@ import { SendSmsComponent } from '../send-sms/send-sms.component';
 export class ListViewComponent implements OnInit {
 
   initVals : any;
+
+  recoveryTime : string;
+  birthTime : string;
+  initialVitals : string;
   today : number = Date.now();
   momsVitalTimes : Array<number>;
   momsAssessmentTimes : Array<number>;
   babysVitalTimes : Array<number>;
   babysAssessmentTimes : Array<number>;
+  emailBody : string;
 
   constructor(private _router : ActivatedRoute/*, private _email : SendSmsComponent*/) { 
     this._router.queryParams.subscribe(params => {
       this.initVals = params;
     });
  
+    this.birthTime = this.convertNumToTime(this.initVals.birthTime);
+    this.recoveryTime = this.convertNumToTime(this.initVals.recoveryTime);
+    this.initialVitals = this.convertNumToTime(this.initVals.initialVitals);
+
     this.momsVitalTimes = this.calculateMomVitals();
     this.momsAssessmentTimes = this.calculateMomAssessment();
     this.babysVitalTimes = this.calculateBabysVitals();
     this.babysAssessmentTimes = this.calculateBabysAssessment();
-
+    this.emailBody = this.convertForEmail(
+                     this.momsVitalTimes, 
+                     this.momsAssessmentTimes, 
+                     this.babysVitalTimes,
+                     this.babysAssessmentTimes);
     //_email.sendEmail("6263907606", this.convertForEmail(this.momsVitalTimes, this.momsAssessmentTimes, this.babysVitalTimes,
       //this.babysAssessmentTimes));
 
@@ -38,9 +52,39 @@ export class ListViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  convertNumToTime(s : any){
+    return new String(s).slice(0,2) + ":" + new String(s).slice(2,4);
+  }
+
   convertForEmail(momV : number[], momA : number[], babyV : number[], babyA : number[]) : string{
+    let resp : string = "";
+
+    resp += "ROOM NUMBER: " + this.initVals.roomNumber + 
+            "\nBirth Time: " + this.birthTime + 
+            "\nBaby's First Vitals: " + this.initialVitals + 
+            "\nMom's Recovery: " + this.recoveryTime;
+
+    resp += "\n\nMom's Vitals:\n"
+    for(let i of momV){
+      resp += formatDate(i, 'HH:mm', 'en-US') + "\n";
+    }
     
-    return "";
+    resp += "\n\nMom's Assessment Times:\n"
+    for(let i of momA){
+      resp += formatDate(i, 'HH:mm', 'en-US') + "\n";
+    }
+
+    resp += "\n\nBaby's Vitals Check Times:\n"
+    for(let i of babyV){
+      resp += formatDate(i, 'HH:mm', 'en-US') + "\n";
+    }
+
+    resp += "\n\nBaby's Assessments Check Times:\n"
+    for(let i of babyA){
+      resp += formatDate(i, 'HH:mm', 'en-US') + "\n";
+    }
+
+    return resp;
   }
 
   convertStringNumToDate(time : string) : any{
@@ -66,7 +110,7 @@ export class ListViewComponent implements OnInit {
     dt.setHours(dt.getHours() + 1);
     arr.push(dt.getTime());
 
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 2; i++){
       dt.setHours(dt.getHours() + 4);
       arr.push(dt.getTime());
     }
@@ -92,7 +136,7 @@ export class ListViewComponent implements OnInit {
     dt.setHours(dt.getHours() + 1);
     arr.push(dt.getTime());
 
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 2; i++){
       dt.setHours(dt.getHours() + 4);
       arr.push(dt.getTime());
     }
@@ -113,7 +157,7 @@ export class ListViewComponent implements OnInit {
     dt.setHours(dt.getHours() + 1);
     arr.push(dt.getTime());
 
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 2; i++){
       dt.setHours(dt.getHours() + 4);
       arr.push(dt.getTime());
     }

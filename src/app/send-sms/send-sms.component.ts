@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -16,6 +16,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class SendSmsComponent implements OnInit {
 
+  @Input() message! : string;
+
   emailForm : any;
   emailFormValues : any = {
     phoneNumber : ''
@@ -31,7 +33,7 @@ export class SendSmsComponent implements OnInit {
   onSubmit(){
     this.emailFormValues = this.emailForm.value;
     console.log(this.emailFormValues);
-    let response = this.sendEmail(this.emailFormValues.phoneNumber, "hello");
+    let response = this.sendEmail(this.emailFormValues.phoneNumber, this.message);
     //this.http.post("http://localhost:4200/api/email", this.emailFormValues, {responseType : 'text'}).pipe().subscribe();
     console.log(response)
   }
