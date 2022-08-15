@@ -7,6 +7,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-send-sms',
@@ -41,6 +42,15 @@ export class SendSmsComponent implements OnInit {
   //utility function
   public sendEmail(num : string, m : string) : any{
     let s = {phoneNumber : num, msg : m};
-    return this.http.post("http://localhost:4200/api/email", s, {responseType : 'text'}).pipe().subscribe();
+    
+    if(environment.production){
+      return this.http.post("http://localhost:4200/api/email", s, {responseType : 'text'}).pipe().subscribe();
+      //return this.http.get("http://localhost:4200/api/").pipe().subscribe();
+    }
+    else{
+      return this.http.post("http://localhost:4200/api/email", s, {responseType : 'text'}).pipe().subscribe();
+    }
+    
+    
   }
 }

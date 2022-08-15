@@ -1,15 +1,15 @@
 {
     "http://localhost:4200/api/email": {
-        "target": "http://3.21.196.101/email",
+        "target": "http://localhost:7200",
         "secure": false,
         "loglevel": "debug",
         "changeOrigin": true,
         "pathRewrite": {
-          "^/api/email": ""
+          "^/api/email": "/email"
          }
       },
     "http://localhost:4200/api": {
-      "target": "http://3.21.196.101",
+      "target": "http://localhost:7200",
       "secure": false,
       "loglevel": "debug",
       "changeOrigin": true,
