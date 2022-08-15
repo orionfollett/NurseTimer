@@ -44,7 +44,7 @@ export class SendSmsComponent implements OnInit {
     let s = {phoneNumber : num, msg : m};
     
     if(environment.production){
-      return this.http.post("http://localhost:4200/api/email", s, {responseType : 'text'}).pipe().subscribe();
+      return this.http.post("http://3.21.196.101/api/email", s, {responseType : 'text'}).pipe().subscribe();
       //return this.http.get("http://localhost:4200/api/").pipe().subscribe();
     }
     else{
